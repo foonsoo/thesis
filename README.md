@@ -20,6 +20,9 @@ Integrates with Grafana for visualization and Alert Manager for notifications.
 - **LLM Integration**: Uses a large language model e.g., OpenAI API to analyze the context and propose actions based on the detected anomalies.
 - **Feedback Loop**: Collects learning data to improve the system over time.
 
+## Diagram
+The following diagram illustrates the architecture of the system:
+
 ```mermaid
 graph TD
     subgraph Kubernetes Cluster
