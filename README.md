@@ -25,7 +25,7 @@ graph TD
     subgraph Kubernetes Cluster
         K8SAPI[Kubernetes API]
         PROM[Prometheus]
-        OTEL[OpenTelemetry Tempo, Loki]
+        OTEL[OpenTelemetry, Tempo, Loki]
         APP[User Applications/Pods]
         EVENT[Kubernetes Events]
 
