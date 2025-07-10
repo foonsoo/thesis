@@ -17,7 +17,7 @@ Integrates with Grafana for visualization and Alert Manager for notifications.
 - **Anomaly Detection**: Uses a trigger to detect anomalies in the data, processes it in parallel, and aggregates results.
 - **Grafana Dashboard Generator**: Creates dashboards based on the aggregated data.
 - **MCP Server**: Implements the Model Context Protocol to interact with the machine learning model and Kubernetes API for remediation actions.
-- **LLM Integration**: Uses a large language model (e.g., OpenAI API) to analyze the context and propose actions based on the detected anomalies.
+- **LLM Integration**: Uses a large language model e.g., OpenAI API to analyze the context and propose actions based on the detected anomalies.
 - **Feedback Loop**: Collects learning data to improve the system over time.
 
 ```mermaid
@@ -25,7 +25,7 @@ graph TD
     subgraph Kubernetes Cluster
         K8SAPI[Kubernetes API]
         PROM[Prometheus]
-        OTEL[OpenTelemetry (Tempo, Loki)]
+        OTEL[OpenTelemetry Tempo, Loki]
         APP[User Applications/Pods]
         EVENT[Kubernetes Events]
 
@@ -36,7 +36,7 @@ graph TD
     end
 
     subgraph Data Ingestion & Storage
-        DATA_COLLECTOR[Data Collector (Go Application)]
+        DATA_COLLECTOR[Data Collector Go Application]
         KAFKA[Kafka Cluster]
         REDIS[Redis Cluster]
 
@@ -46,14 +46,14 @@ graph TD
         KAFKA -- Stream --> REDIS
     end
 
-    subgraph Intelligent Remediation System (Core Logic)
+    subgraph Intelligent Remediation System Core Logic
         TRIGGER[Anomaly Trigger]
         PARALLEL_PROCESSOR[Parallel Data Processor]
         REDIS_AGGREGATOR[1. Redis Data Aggregator]
         GRAFANA_DASHBOARD_GEN[2. Grafana Dashboard Generator]
-        MCP_SERVER[MCP Server (Model Context Protocol Server)]
-        LLM[LLM (e.g., OpenAI API)]
-        K8SAPI_MCP[Kubernetes API (Controlled by MCP Server)]
+        MCP_SERVER[MCP Server Model Context Protocol Server]
+        LLM[LLM e.g., OpenAI API]
+        K8SAPI_MCP[Kubernetes API Controlled by MCP Server]
         FEEDBACK_LOOP[Feedback Loop / Learning]
 
         REDIS -- 15min Data --> TRIGGER
